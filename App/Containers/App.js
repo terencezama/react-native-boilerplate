@@ -4,7 +4,9 @@ import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import RootContainer from './RootContainer'
 import createStore from '../Redux'
+import {bootstrap} from '../Config/bootstrap'
 
+bootstrap();
 // create our store
 const store = createStore()
 
