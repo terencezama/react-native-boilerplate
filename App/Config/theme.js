@@ -72,7 +72,7 @@ const Fonts = {
   logo: 'Righteous-Regular',
 };
 
-const FontBaseValue = scale(18);
+const FontBaseValue = scale(15);
 
 export const KittenTheme = {
   name: 'light',
@@ -90,6 +90,7 @@ export const KittenTheme = {
       accent: Colors.accent,
       inverse: Colors.inverseForeground,
       hint: Colors.alterForeground,
+      danger: Colors.danger
     },
     input: {
       text: Colors.alterForeground,

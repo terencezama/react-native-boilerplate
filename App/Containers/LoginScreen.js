@@ -21,6 +21,7 @@ import {scale, scaleModerate, scaleVertical} from '../utils/scale';
 
 // Styles
 import styles from './Styles/LoginScreenStyle'
+import LoginForm from '../Components/Forms/LoginForm'
 
 class LoginScreen extends Component {
   static navigationOptions = {
@@ -29,6 +30,9 @@ class LoginScreen extends Component {
 
   constructor(props) {
     super(props);
+  }
+  _onSubmit=(values)=>{
+    console.log(values);
   }
 
   render() {
@@ -47,15 +51,7 @@ class LoginScreen extends Component {
           <RkText rkType='h1'>PMS</RkText>
         </View>
         <View style={styles.content}>
-          <View>
-            <RkTextInput rkType='rounded' placeholder='Email'/>
-            <RkTextInput rkType='rounded' placeholder='Password' secureTextEntry={true}/>
-
-            <RkButton  rkType='xlarge' onPress={() => {
-              this.props.navigation.goBack()
-            }}>
-            Login</RkButton>
-          </View>
+          <LoginForm onSubmit={(values)=>this._onSubmit(values)}/>
         </View>
       </RkAvoidKeyboard>
     )

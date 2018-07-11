@@ -14,6 +14,10 @@ export let bootstrap = () => {
 
   RkTheme.setTheme(KittenTheme, null);
 
+  RkTheme.setType('RkButton', 'disable', {
+    backgroundColor: 'gray'
+  });
+
   /*
    RkText types
    */
@@ -153,6 +157,10 @@ export let bootstrap = () => {
   RkTheme.setType('RkText', 'chat', {
     color: theme => theme.colors.chat.text
   });
+  RkTheme.setType('RkText', 'error', {
+    color: theme => theme.colors.text.danger,
+    fontSize: theme => theme.fonts.sizes.small,
+  });
   /*
    RkButton types
    */
@@ -237,12 +245,15 @@ export let bootstrap = () => {
 
   RkTheme.setType('RkTextInput', 'basic', {
     input: {
-      fontFamily: theme => theme.fonts.family.bold
+      fontFamily: theme => theme.fonts.family.bold,
+      margin:0,
+    padding:0,
     },
     color: theme => theme.colors.text.base,
     backgroundColor: theme => theme.colors.control.background,
     labelColor: theme => theme.colors.input.label,
     placeholderTextColor: theme => theme.colors.input.placeholder,
+    underlineColor:'gray',
   });
 
   RkTheme.setType('RkTextInput', 'rounded', {
