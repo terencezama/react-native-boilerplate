@@ -51,18 +51,10 @@ class LoginScreen extends Component {
             <RkTextInput rkType='rounded' placeholder='Email'/>
             <RkTextInput rkType='rounded' placeholder='Password' secureTextEntry={true}/>
 
-            <RkButton style={styles.save} rkType='xlarge' onPress={() => {
+            <RkButton  rkType='xlarge' onPress={() => {
               this.props.navigation.goBack()
             }}>
             Login</RkButton>
-          </View>
-          <View style={styles.footer}>
-            <View style={styles.textRow}>
-              {/* <RkText rkType='primary3'>Already have an account?</RkText>
-              <RkButton rkType='clear'  onPress={() => this.props.navigation.navigate('Login1')}>
-                <RkText rkType='header6'> Sign in now </RkText>
-              </RkButton> */}
-            </View>
           </View>
         </View>
       </RkAvoidKeyboard>

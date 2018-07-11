@@ -246,11 +246,11 @@ export let bootstrap = () => {
   });
 
   RkTheme.setType('RkTextInput', 'rounded', {
-    fontSize: theme => theme.fonts.sizes.h6,
     borderWidth: 1,
     underlineWidth: 1,
     placeholderTextColor: theme => theme.colors.input.text,
     input: {
+      fontSize: theme => theme.fonts.sizes.h6,
       marginVertical: {
         ios: scaleVertical(15),
         android: scaleVertical(4)
