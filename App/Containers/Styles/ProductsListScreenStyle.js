@@ -12,5 +12,11 @@ export default RkStyleSheet.create(theme => ({
   },
   post: {
     marginTop: 13
+  },
+  item:{
+    image:{
+      margin: 8,
+      backgroundColor: 'white'
+    }
   }
 }));

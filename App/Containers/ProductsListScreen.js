@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {
   FlatList,
+  VirtualizedList,
   Image,
   View,
   TouchableOpacity
@@ -18,6 +19,7 @@ import ProductActions from '../Redux/ProductsRedux'
 
 // Styles
 import styles from './Styles/ProductsListScreenStyle'
+import { Images } from '../Themes';
 
 class ProductsListScreen extends Component {
 
@@ -27,54 +29,79 @@ class ProductsListScreen extends Component {
 
   constructor(props) {
     super(props);
-    this.data = [{
-      'id': 7,
-      'photo': "",
-      'type': 'fact',
-      'time': -5665,
-      'header': 'Smile and Frown',
-      'text': 'It takes 17 muscles to smile and 43 to frown.',
-      'comments': []
-    }];
+
+
+    this.state = {
+      data: []
+    }
 
   }
 
-  _keyExtractor(post) {
-    return post.id;
+  componentWillReceiveProps(nprops) {
+    const { products } = nprops
+    if (products.payload) {
+      let data = this.state.data
+      data.push(...products.payload)
+      this.setState({ data })
+    }
+
   }
 
-  _renderItem = (info) => {
+  
+
+
+
+
+  _renderImage = (product) => {
+    
+    if(product.image){
+      return (<Image style={styles.item.image} rkCardImg source={{uri:product.image.url}} resizeMode={'contain'} />)
+    }else{
+      return (<Image style={styles.item.image} rkCardImg source={Images.image} resizeMode={'contain'} />)
+    }
+  }
+  _renderItem = (item) => {
+    // console.log("item",item)
+    const product = item.item
+    const {name, description, barcode} = product
     return (
       <TouchableOpacity
         delayPressIn={70}
         activeOpacity={0.8}
-        onPress={() => this.props.navigation.navigate('Article', { id: info.item.id })}>
+        onPress={() =>{}}>
         <RkCard rkType='horizontal' style={styles.card}>
-          <Image rkCardImg source={info.item.photo} />
+          {this._renderImage(product)}
 
           <View rkCardContent>
-            <RkText numberOfLines={1} rkType='header6'>{"header"}</RkText>
-            <RkText rkType='secondary6 hintColor'>{`second`}</RkText>
-            <RkText style={styles.post} numberOfLines={2} rkType='secondary1'>{'tertiary'}</RkText>
+            <RkText numberOfLines={1} rkType='header6'>{name}</RkText>
+            <RkText rkType='secondary6 hintColor'>{description}</RkText>
+            <RkText style={styles.post} numberOfLines={2} rkType='secondary1'>{"barcode"}</RkText>
           </View>
         </RkCard>
       </TouchableOpacity>
     )
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.fetchProducts()
   }
 
   render() {
-    console.log("listing products",this.props.products)
+    const { data } = this.state
     return (
       <View>
-        <FlatList
-          data={this.data}
+        <VirtualizedList
+          data={[]}
+          getItemCount={(d) => data.length}
+          getItem={(d, index) => {
+            return data[index];
+          }}
+          keyExtractor={(item, index) => {
+            return index+"";
+          }}
           renderItem={this._renderItem}
-          keyExtractor={this._keyExtractor}
-          style={styles.container} />
+          style={styles.container}
+           />
       </View>
     )
   }
@@ -83,7 +110,7 @@ class ProductsListScreen extends Component {
 const mapStateToProps = (state) => {
   return {
     // props:
-    products:state.products
+    products: state.products
   }
 }
 
