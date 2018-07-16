@@ -6,7 +6,7 @@ import {
   RkAvoidKeyboard
 } from 'react-native-ui-kitten';
 import { connect } from 'react-redux'
-import styles from './style.js'
+import styles from './styles.js'
 
 
 class NiceScreen extends Component {

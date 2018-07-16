@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 import styles from './styles.js'
 
 
-class <%= title %>Screen extends Component {
+class LoginScreen extends Component {
   static navigationOptions = {
     header: null
   };
@@ -40,4 +40,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(<%= title %>Screen)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen)

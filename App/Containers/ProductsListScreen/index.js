@@ -12,14 +12,14 @@ import {
 } from 'react-native-ui-kitten';
 import { connect } from 'react-redux'
 
-import ProductActions from '../Redux/ProductsRedux'
+import ProductActions from '../../Redux/ProductsRedux'
 
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
 // Styles
-import styles from './Styles/ProductsListScreenStyle'
-import { Images } from '../Themes';
+import styles from './styles'
+import { Images } from '../../Themes';
 
 class ProductsListScreen extends Component {
 

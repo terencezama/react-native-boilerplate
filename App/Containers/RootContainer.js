@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import StartupActions from '../Redux/StartupRedux'
 
 // Styles
-import styles from './Styles/RootContainerStyles'
+import styles from './RootContainerStyles'
 
 class RootContainer extends Component {
   componentDidMount () {
