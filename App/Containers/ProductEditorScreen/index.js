@@ -7,15 +7,20 @@ import {
 } from 'react-native-ui-kitten';
 import { connect } from 'react-redux'
 import styles from './styles.js'
+import ProductForm from '../../Components/Forms/ProductForm'
 
-
-class NiceScreen extends Component {
+class ProductEditorScreen extends Component {
   static navigationOptions = {
-    header: null
+    header: "Edit Product"
   };
 
   constructor(props) {
     super(props);
+  }
+
+  _onSubmit = (data) => {
+    console.log(data);
+
   }
   
   render() {
@@ -25,6 +30,7 @@ class NiceScreen extends Component {
         onStartShouldSetResponder={ (e) => true}
         onResponderRelease={ (e) => Keyboard.dismiss()}>
         {/* screen components goes here */}
+        <ProductForm onSubmit={this._onSubmit} />
       </RkAvoidKeyboard>
     )
   }
@@ -40,4 +46,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NiceScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(ProductEditorScreen)

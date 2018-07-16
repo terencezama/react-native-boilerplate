@@ -1,20 +1,17 @@
-import { StackNavigator } from 'react-navigation'
+import { StackNavigator } from 'react-navigation';
 import {
-  ProductsListScreen
-} from '../Containers'
-
-import styles from './Styles/NavigationStyles'
-
-// Manifest of possible screens
+    ProductsListScreen,
+    LoginScreen,
+    ProductEditorScreen
+} from '../Containers';
+import styles from './Styles/NavigationStyles';
 const PrimaryNav = StackNavigator({
-  ProductsListScreen: { screen: ProductsListScreen },
+    ProductsListScreen: { screen: ProductsListScreen },
+    LoginScreen: { screen: LoginScreen },
+    ProductEditorScreen: { screen: ProductEditorScreen }
 }, {
-  // Default config for all screens
-  headerMode: 'none',
-  initialRouteName: 'ProductsListScreen',
-  navigationOptions: {
-    headerStyle: styles.header
-  }
-})
-
-export default PrimaryNav
+    headerMode: 'none',
+    initialRouteName: 'ProductEditorScreen',
+    navigationOptions: { headerStyle: styles.header }
+});
+export default PrimaryNav;

@@ -16,20 +16,32 @@ const ProductForm = ({
         <View>
             <View>
                 
-                {/* <ReduxInput
+                <ReduxInput
                     key={1}
-                    label="Email"
-                    name='email'
-                    validate={[Validate.isEmail,Validate.isRequired]}
-                    keyboardType='email-address'
+                    label="Barcode"
+                    name='barcode'
+                    validate={[Validate.isRequired]}
+                />
+                <ReduxInput
+                    key={1}
+                    label="Name"
+                    name='name'
+                    validate={[Validate.isRequired]}
                 />
                 <ReduxInput
                     key={2}
-                    label="Password"
-                    name='password'
-                    secureTextEntry
-                    validate={[Validate.isMinLength6,Validate.isRequired]}
-                /> */}
+                    label="Description"
+                    name='description'
+                    validate={[Validate.isRequired]}
+                    multiline={true}
+                    numberOfLines={4}
+                />
+                <ReduxInput
+                    key={1}
+                    label="Image"
+                    name='image'
+                    validate={[Validate.isRequired]}
+                />
             </View>
             <RkButton
                 rkType={invalid?'xlarge disable':'xlarge'}
