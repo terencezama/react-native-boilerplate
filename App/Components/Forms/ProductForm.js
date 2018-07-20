@@ -3,6 +3,8 @@ import {View} from 'react-native'
 import { reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import ReduxInput from '../ReduxInput'
+import ReduxBarcodeInput from '../ReduxBarcodeInput'
+import ReduxImageInput from '../ReduxImageInput'
 import {RkButton } from 'react-native-ui-kitten'
 
 import { ApplicationStyles } from '../../Themes'
@@ -13,10 +15,10 @@ const ProductForm = ({
 }) => {
 
     return (
-        <View>
-            <View>
+        <View style={{flex:1, justifyContent:'space-around'}}>
+            <View style={{flex:0.8}}>
                 
-                <ReduxInput
+                <ReduxBarcodeInput
                     key={1}
                     label="Barcode"
                     name='barcode'
@@ -36,7 +38,7 @@ const ProductForm = ({
                     multiline={true}
                     numberOfLines={4}
                 />
-                <ReduxInput
+                <ReduxImageInput
                     key={4}
                     label="Image"
                     name='image'
