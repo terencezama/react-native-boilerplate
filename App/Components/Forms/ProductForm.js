@@ -23,13 +23,13 @@ const ProductForm = ({
                     validate={[Validate.isRequired]}
                 />
                 <ReduxInput
-                    key={1}
+                    key={2}
                     label="Name"
                     name='name'
                     validate={[Validate.isRequired]}
                 />
                 <ReduxInput
-                    key={2}
+                    key={3}
                     label="Description"
                     name='description'
                     validate={[Validate.isRequired]}
@@ -37,7 +37,7 @@ const ProductForm = ({
                     numberOfLines={4}
                 />
                 <ReduxInput
-                    key={1}
+                    key={4}
                     label="Image"
                     name='image'
                     validate={[Validate.isRequired]}

@@ -5,6 +5,8 @@ import {
 import {
   RkAvoidKeyboard
 } from 'react-native-ui-kitten';
+
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { connect } from 'react-redux'
 import styles from './styles.js'
 import ProductForm from '../../Components/Forms/ProductForm'
@@ -25,13 +27,12 @@ class ProductEditorScreen extends Component {
   
   render() {
     return (
-      <RkAvoidKeyboard
-        style={styles.screen}
-        onStartShouldSetResponder={ (e) => true}
-        onResponderRelease={ (e) => Keyboard.dismiss()}>
+      <KeyboardAwareScrollView
+        contentContainerStyle={styles.screen}
+        >
         {/* screen components goes here */}
         <ProductForm onSubmit={this._onSubmit} />
-      </RkAvoidKeyboard>
+      </KeyboardAwareScrollView>
     )
   }
 }
